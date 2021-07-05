@@ -23,7 +23,7 @@ function genEnum(typeName: string, type: Enum): string {
 }
 
 function genMessage(typeName: string, type: Message): string {
-  return `MSG_${typeName}_UNIMPLEMENTED`;
+  return `// MSG_${typeName}_UNIMPL`;
 }
 
 export default async function* gen(
