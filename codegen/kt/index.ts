@@ -13,14 +13,13 @@ function genEnum(typeName: string, type: Enum): string {
     "0": { description: "", name: "UNSPECIFIED", options: {} },
     ...type.fields,
   });
-  const enumString = `public enum class ${typeName}(val value: Int) {\n${
+
+  return `public enum class ${typeName}(val value: Int) {\n${
     fields.map(([fieldValue, { name }]) => `  ${name}(${fieldValue}),`).join(
       "\n",
     )
   }
 }`;
-
-  return enumString;
 }
 
 function genMessage(typeName: string, type: Message): string {
