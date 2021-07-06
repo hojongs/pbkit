@@ -10,3 +10,8 @@ export function snakeToCamel(snake: string): string {
 export function pascalToCamel(pascal: string): string {
   return pascal[0].toLowerCase() + pascal.substr(1);
 }
+
+export function snakeToPascal(snake: string): string {
+  const camel = snakeToCamel(snake);
+  return camel[0].toUpperCase() + camel.substr(1);
+}
