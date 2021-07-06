@@ -26,7 +26,7 @@ function genEnum(typeName: string, type: Enum): string {
     ...type.fields,
   });
 
-  return `public enum class ${typeName}(val value: Int) {\n${
+  return `enum class ${typeName}(val value: Int) {\n${
     fields.map(([fieldValue, { name }]) => `  ${name}(${fieldValue}),`).join(
       "\n",
     )
@@ -93,7 +93,7 @@ function genMessage(typeName: string, type: Message): string {
 
   const groupedOneofFields = Array.from(groupedOneofFieldsMap);
 
-  const value = `public data class ${typeName} (\n${
+  const value = `data class ${typeName} (\n${
     [
       ...requiredAndNormalFields.map(([, { name, typePath }]) =>
         `  var ${snakeToCamel(name)}: ${pbTypeToKtType(typePath)},`
